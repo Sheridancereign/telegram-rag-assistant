@@ -6,6 +6,8 @@ from app.config import settings
 
 EMBEDDING_MODEL = "gemini-embedding-001"
 EMBEDDING_DIM = 768
+BATCH_SIZE = 100
+
 
 _client = genai.Client(api_key=settings.gemini_api_key)
 
@@ -17,15 +19,21 @@ def _normalize(vector: list[float]) -> list[float]:
     return (array / norm).tolist() if norm > 0 else vector
 
 async def embed_document_chunks(chunks: list[str]) -> list[list[float]]:
-    response = await _client.aio.models.embed_content(
-        model=EMBEDDING_MODEL,
-        contents=chunks,
-        config=types.EmbedContentConfig(
-            task_type="RETRIEVAL_DOCUMENT",
-            output_dimensionality=EMBEDDING_DIM,
-        ),
-    )
-    return [_normalize(embedding.values) for embedding in response.embeddings]
+    all_embeddings: list[list[float]] = []
+
+    for i in range(0, len(chunks), BATCH_SIZE):
+        batch = chunks[i: i + BATCH_SIZE]
+        response = await _client.aio.models.embed_content(
+            model=EMBEDDING_MODEL,
+            contents=batch,
+            config=types.EmbedContentConfig(
+                task_type="RETRIEVAL_DOCUMENT",
+                output_dimensionality=EMBEDDING_DIM,
+            ),
+        )
+        all_embeddings.extend(_normalize(embedding.values) for embedding in response.embeddings)
+
+    return all_embeddings
 
 
 async def embed_query(text: str) -> list[float]:
