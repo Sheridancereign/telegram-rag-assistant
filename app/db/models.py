@@ -21,7 +21,7 @@ class User(Base):
     id: Mapped[int] = mapped_column(BigInteger, primary_key=True)
     created_at = mapped_column(DateTime(timezone=True), server_default=func.now())
 
-    Documents: Mapped[list["Document"]] = relationship("Document", back_populates="user")
+    documents: Mapped[list["Document"]] = relationship("Document", back_populates="user")
 
 
 class Document(Base):
