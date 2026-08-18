@@ -1,5 +1,14 @@
 # Telegram RAG Assistant
 
+![Python](https://img.shields.io/badge/python-3.12+-blue.svg)
+![Poetry](https://img.shields.io/badge/dependency%20management-poetry-60A5FA.svg)
+![PostgreSQL](https://img.shields.io/badge/postgresql-16-336791.svg)
+![pgvector](https://img.shields.io/badge/pgvector-enabled-brightgreen.svg)
+![Docker](https://img.shields.io/badge/docker-compose-2496ED.svg)
+![License](https://img.shields.io/badge/license-MIT-lightgrey.svg)
+![GitHub last commit](https://img.shields.io/github/last-commit/Sheridancereign/telegram-rag-assistant)
+![GitHub repo size](https://img.shields.io/github/repo-size/Sheridancereign/telegram-rag-assistant)
+
 A Telegram bot that answers questions about your documents using Retrieval-Augmented Generation (RAG). Upload a PDF or
 TXT file, then ask questions about its content — the bot finds relevant passages via semantic vector search and
 generates grounded answers using Google Gemini.
