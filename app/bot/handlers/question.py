@@ -6,7 +6,6 @@ from app.core.rag_engine import generate_agentic_answer
 from app.core.tools import build_tool_dispatch
 from app.db.repository import get_latest_document
 
-
 router = Router()
 
 @router.message(F.text & ~F.text.startswith("/"))

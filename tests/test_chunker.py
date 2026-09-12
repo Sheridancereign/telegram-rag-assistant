@@ -1,5 +1,6 @@
 from app.core.chunker import split_into_chunks
 
+
 def test_empy_text_returns_empty_list():
     assert split_into_chunks("") == []
 

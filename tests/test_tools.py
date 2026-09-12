@@ -1,9 +1,12 @@
-from unittest.mock import AsyncMock, patch
+from unittest.mock import patch
 
 from app.core.external_tools import get_exchange_rate
-from app.core.tools import GET_EXCHANGE_RATE_DECLARATION, SEARCH_KNOWLEDGE_BASE_DECLARATION, build_tool_dispatch
+from app.core.tools import (
+    GET_EXCHANGE_RATE_DECLARATION,
+    SEARCH_KNOWLEDGE_BASE_DECLARATION,
+    build_tool_dispatch,
+)
 from app.db.repository import create_document, get_or_create_user, save_chunks
-
 
 FAKE_EMBEDDING_DIM = 768
 

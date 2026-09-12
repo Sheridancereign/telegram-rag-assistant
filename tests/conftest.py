@@ -1,7 +1,7 @@
 import pytest
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.db.base import async_session_factory, engine
+from app.db.base import engine
 
 
 @pytest.fixture

@@ -3,7 +3,6 @@ from unittest.mock import AsyncMock, MagicMock, patch
 from app.core.external_tools import get_exchange_rate
 
 
-
 def _make_fake_httpx_response(json_data: dict) -> MagicMock:
     response = MagicMock()
     response.json.return_value = json_data

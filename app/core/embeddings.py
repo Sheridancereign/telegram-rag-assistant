@@ -1,6 +1,6 @@
+import numpy as np
 from google import genai
 from google.genai import types
-import numpy as np
 
 from app.config import settings
 

@@ -2,7 +2,12 @@ from unittest.mock import AsyncMock, MagicMock, patch
 
 import pytest
 
-from app.core.embeddings import EMBEDDING_DIM, _normalize, embed_document_chunks, embed_query
+from app.core.embeddings import (
+    EMBEDDING_DIM,
+    _normalize,
+    embed_document_chunks,
+    embed_query,
+)
 
 
 def test_normalize_produces_unit_length_vector():

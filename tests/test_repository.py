@@ -1,12 +1,10 @@
+import uuid
 from datetime import datetime, timedelta, timezone
 
+import pytest
 from sqlalchemy import update
 
 from app.db.models import Document as DocumentModel
-import uuid
-
-import pytest
-
 from app.db.models import User
 from app.db.repository import (
     create_document,
@@ -15,7 +13,6 @@ from app.db.repository import (
     save_chunks,
     search_similar_chunks,
 )
-
 
 FAKE_EMBEDDING_DIM = 768
 
